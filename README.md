@@ -6,8 +6,8 @@ Launch two seperate terminals. In one terminal run the following command
 
 In another terminal, make sure you have the following file structure within a directory
 
-parent/damage
-parent/no_damage
+parent/data/damage
+parent/data/no_damage
 parent/grader.py
 
 Given the above file structure you can now run the following command below in an alternate terminal
