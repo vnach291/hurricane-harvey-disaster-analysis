@@ -4,5 +4,24 @@ Use of AI
 [1]. Tool: Grok Code Fast 1
      Prompt: help me implement pytorch's custom dataloader class and scheme please
      Output:
-       # Replace 'your_file.csv' with the path to your CSV file
-       df = pd.read_csv("your_file.csv")
+       class ImageDataset(Dataset):
+            def __init__(self, file_list, labels, transform=None, processor=None):
+                self.file_list = file_list
+                self.labels = labels
+                self.transform = transform
+                self.processor = processor
+
+            def __len__(self):
+                return len(self.file_list)
+
+            def __getitem__(self, idx):
+                img_path = self.file_list[idx]
+                img = Image.open(img_path).resize((224, 224))  # Resize here
+                if self.transform:
+                    img = self.transform(img)
+                if self.processor:
+                    inputs = self.processor(img, return_tensors="pt")
+                    img = inputs['pixel_values'].squeeze(0)
+                label = self.labels[idx]
+                return img, label
+            
