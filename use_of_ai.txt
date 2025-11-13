@@ -1,0 +1,8 @@
+Use of AI
+---------
+
+[1]. Tool: Grok Code Fast 1
+     Prompt: help me implement pytorch's custom dataloader class and scheme please
+     Output:
+       # Replace 'your_file.csv' with the path to your CSV file
+       df = pd.read_csv("your_file.csv")
